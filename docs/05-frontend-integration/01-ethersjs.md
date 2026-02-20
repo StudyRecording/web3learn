@@ -5,7 +5,7 @@ ethers.js 是目前最流行的以太坊 JavaScript 库，相比 web3.js 更轻�
 ## 安装
 
 ```bash
-pnpm add ethers
+bun add ethers
 ```
 
 ## 核心概念

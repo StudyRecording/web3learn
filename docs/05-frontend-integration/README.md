@@ -74,11 +74,11 @@
 
 ```bash
 # 创建项目
-pnpm create vite my-dapp --template react-ts
+bun create vite my-dapp --template react-ts
 
 # 安装依赖
 cd my-dapp
-pnpm add ethers viem wagmi @tanstack/react-query @wagmi/connectors
+bun add ethers viem wagmi @tanstack/react-query @wagmi/connectors
 ```
 
 ## 学习建议

@@ -23,7 +23,7 @@ wagmi 是专为 React 设计的以太坊 Hooks 库，配合 viem（TypeScript �
 ## 安装
 
 ```bash
-pnpm add wagmi viem @tanstack/react-query @wagmi/connectors
+bun add wagmi viem @tanstack/react-query @wagmi/connectors
 ```
 
 ## 1. 项目配置

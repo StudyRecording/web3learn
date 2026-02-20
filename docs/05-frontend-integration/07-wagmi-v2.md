@@ -31,7 +31,7 @@
 ### 安装依赖
 
 ```bash
-npm install wagmi viem@2.x @tanstack/react-query
+bun add wagmi viem@2.x @tanstack/react-query
 ```
 
 ### 基础配置

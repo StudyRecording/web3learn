@@ -550,23 +550,23 @@ footer {
 ### 安装依赖
 
 ```bash
-npm create vite@latest faucet-dapp -- --template react-ts
+bun create vite faucet-dapp --template react-ts
 cd faucet-dapp
 
-npm install wagmi viem@2.x @tanstack/react-query
+bun add wagmi viem@2.x @tanstack/react-query
 ```
 
 ### 开发命令
 
 ```bash
 # 启动开发服务器
-npm run dev
+bun run dev
 
 # 构建生产版本
-npm run build
+bun run build
 
 # 预览生产版本
-npm run preview
+bun run preview
 ```
 
 ## 部署
@@ -575,7 +575,7 @@ npm run preview
 
 ```bash
 # 安装 Vercel CLI
-npm i -g vercel
+bun add -g vercel
 
 # 部署
 vercel

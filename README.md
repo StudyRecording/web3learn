@@ -103,17 +103,15 @@ WEB3/
 ## 开发环境准备
 
 ```bash
-# Node.js (推荐 v18+)
-node --version
-
-# 包管理器
-npm install -g pnpm
+# Bun (推荐 v1.0+)
+curl -fsSL https://bun.sh/install | bash
+bun --version
 
 # Solidity 编译器
-npm install -g solc
+bun add -g solc
 
 # Hardhat
-npm install -g hardhat
+bun add -g hardhat
 
 # Foundry (Rust 编写的快速工具)
 curl -L https://foundry.paradigm.xyz | bash
