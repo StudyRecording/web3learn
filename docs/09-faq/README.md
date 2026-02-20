@@ -440,7 +440,7 @@ contract Token {
 
 ```bash
 # 使用 Hardhat
-npx hardhat verify --network sepolia <CONTRACT_ADDRESS> <CONSTRUCTOR_ARGS>
+bunx hardhat verify --network sepolia <CONTRACT_ADDRESS> <CONSTRUCTOR_ARGS>
 
 # 使用 Foundry
 forge verify-contract \

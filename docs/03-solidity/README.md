@@ -83,8 +83,8 @@ foundryup
 
 # 或使用 Hardhat (Node.js 生态)
 npm init -y
-npm install --save-dev hardhat
-npx hardhat init
+bun add --dev hardhat
+bunx hardhat init
 ```
 
 ### 第一个合约

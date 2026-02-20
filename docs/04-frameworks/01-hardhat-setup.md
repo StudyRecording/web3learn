@@ -2,20 +2,25 @@
 
 ## 前置要求
 
-### 1. Node.js 安装
+### 1. Bun 安装（推荐）
 
-Hardhat 需要 Node.js 16+ 版本。作为 Java 开发者，你可以把 Node.js 理解为 JVM。
+本教程使用 **Bun** 作为 JavaScript/TypeScript 运行时，它比 Node.js 更快、更简洁。
 
 ```bash
-# 检查 Node.js 版本
-node --version
-# 期望输出: v18.x.x 或更高
+# 安装 Bun
+curl -fsSL https://bun.sh/install | bash
 
-# 检查 npm 版本
-npm --version
+# 验证安装
+bun --version
+# 期望输出: 1.x.x 或更高
 ```
 
-如果未安装，推荐使用 **nvm**（Node Version Manager）管理 Node.js 版本：
+> 也可以使用 Node.js 16+，但 Bun 是首选。如需使用 Node.js，可参考附录：
+> ```bash
+> # 使用 nvm 安装 Node.js（替代方案）
+> curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+> nvm install --lts
+> ```
 
 ```bash
 # macOS/Linux
@@ -30,17 +35,16 @@ nvm use --lts
 # 下载地址: https://github.com/coreybutler/nvm-windows/releases
 ```
 
-### 2. 包管理器选择
+### 2. 包管理器
 
-除了默认的 npm，还可以选择：
+Bun 内置包管理器，无需额外安装。与 npm/pnpm/yarn 命令对比：
 
-```bash
-# 安装 pnpm（推荐，速度更快，磁盘空间更省）
-npm install -g pnpm
-
-# 或安装 yarn
-npm install -g yarn
-```
+| 操作 | npm | Bun |
+|------|-----|-----|
+| 安装依赖 | `npm install` | `bun install` |
+| 安装开发依赖 | `npm install --save-dev <pkg>` | `bun add --dev <pkg>` |
+| 运行脚本 | `npm run <script>` | `bun run <script>` |
+| 执行 CLI | `npx <command>` | `bunx <command>` |
 
 ## 创建 Hardhat 项目
 
@@ -51,14 +55,14 @@ npm install -g yarn
 mkdir my-hardhat-project
 cd my-hardhat-project
 
-# 初始化 npm 项目
-npm init -y
+# 初始化项目
+bun init -y
 
 # 安装 Hardhat
-npm install --save-dev hardhat
+bun add --dev hardhat
 
 # 创建 Hardhat 项目
-npx hardhat init
+bunx hardhat init
 ```
 
 你会看到以下选项：
@@ -93,8 +97,8 @@ Welcome to Hardhat v2.19.0
 ```bash
 mkdir my-hardhat-project
 cd my-hardhat-project
-npm init -y
-npm install --save-dev hardhat
+bun init -y
+bun add --dev hardhat
 
 # 手动创建目录结构
 mkdir -p contracts scripts test
@@ -351,7 +355,7 @@ artifacts
 安装 dotenv：
 
 ```bash
-npm install dotenv
+bun add dotenv
 ```
 
 ## 常用插件
@@ -360,7 +364,7 @@ npm install dotenv
 
 ```bash
 # Hardhat Toolbox（包含常用工具的套件）
-npm install --save-dev @nomicfoundation/hardhat-toolbox
+bun add --dev @nomicfoundation/hardhat-toolbox
 
 # 包含：
 # - @nomicfoundation/hardhat-ethers: Ethers.js 集成
@@ -375,25 +379,25 @@ npm install --save-dev @nomicfoundation/hardhat-toolbox
 
 ```bash
 # Gas 报告
-npm install --save-dev hardhat-gas-reporter
+bun add --dev hardhat-gas-reporter
 
 # 代码覆盖率
-npm install --save-dev solidity-coverage
+bun add --dev solidity-coverage
 
 # 合约验证
-npm install --save-dev @nomicfoundation/hardhat-verify
+bun add --dev @nomicfoundation/hardhat-verify
 
 # 部署管理
-npm install --save-dev hardhat-deploy
+bun add --dev hardhat-deploy
 
 # 可升级合约
-npm install --save-dev @openzeppelin/hardhat-upgrades
+bun add --dev @openzeppelin/hardhat-upgrades
 
 # Prettier 格式化
-npm install --save-dev prettier prettier-plugin-solidity
+bun add --dev prettier prettier-plugin-solidity
 
 # Solhint 静态分析
-npm install --save-dev solhint
+bun add --dev solhint
 ```
 
 ## 验证安装
@@ -424,7 +428,7 @@ contract SimpleStorage {
 编译合约：
 
 ```bash
-npx hardhat compile
+bunx hardhat compile
 ```
 
 输出：
@@ -438,40 +442,40 @@ Compilation finished successfully
 
 ```bash
 # 编译合约
-npx hardhat compile
+bunx hardhat compile
 
 # 清理编译产物
-npx hardhat clean
+bunx hardhat clean
 
 # 运行测试
-npx hardhat test
+bunx hardhat test
 
 # 运行特定测试文件
-npx hardhat test test/SimpleStorage.js
+bunx hardhat test test/SimpleStorage.js
 
 # 启动本地节点
-npx hardhat node
+bunx hardhat node
 
 # 运行脚本
-npx hardhat run scripts/deploy.js
+bunx hardhat run scripts/deploy.js
 
 # 部署到指定网络
-npx hardhat run scripts/deploy.js --network sepolia
+bunx hardhat run scripts/deploy.js --network sepolia
 
 # 查看账户
-npx hardhat accounts
+bunx hardhat accounts
 
 # 检查合约大小
-npx hardhat size-contracts
+bunx hardhat size-contracts
 
 # 生成类型定义（TypeScript）
-npx hardhat typechain
+bunx hardhat typechain
 
 # 验证合约
-npx hardhat verify --network sepolia <CONTRACT_ADDRESS> <CONSTRUCTOR_ARGS>
+bunx hardhat verify --network sepolia <CONTRACT_ADDRESS> <CONSTRUCTOR_ARGS>
 
 # 帮助
-npx hardhat help
+bunx hardhat help
 ```
 
 ## VSCode 集成
@@ -527,10 +531,14 @@ Error: Source file requires different compiler version
 
 2. **依赖安装失败**
 ```bash
-# 清除 npm 缓存
-npm cache clean --force
-rm -rf node_modules package-lock.json
-npm install
+# 清除缓存
+rm -rf node_modules bun.lockb
+bun install
+
+# 或者使用 Node.js 缓存清理（如果使用 npm）
+# npm cache clean --force
+# rm -rf node_modules package-lock.json
+# npm install
 ```
 
 3. **端口被占用（启动本地节点）**
@@ -540,13 +548,15 @@ lsof -i :8545  # macOS/Linux
 netstat -ano | findstr :8545  # Windows
 
 # 终止进程或使用其他端口
-npx hardhat node --port 8546
+bunx hardhat node --port 8546
 ```
 
 4. **内存不足**
 ```bash
-# 增加 Node.js 内存限制
-export NODE_OPTIONS="--max-old-space-size=4096"
+# 增加 Bun 内存限制
+export BUN_JSC_forceRAMSize=4294967296  # 4GB
+# 或使用 Node.js 内存限制（如果使用 Node）
+# export NODE_OPTIONS="--max-old-space-size=4096"
 ```
 
 ## 下一步

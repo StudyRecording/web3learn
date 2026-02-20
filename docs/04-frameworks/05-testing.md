@@ -660,10 +660,10 @@ genhtml lcov.info --output-directory coverage
 
 ```bash
 # 安装
-npm install --save-dev solidity-coverage
+bun add --dev solidity-coverage
 
 # 运行
-npx hardhat coverage
+bunx hardhat coverage
 ```
 
 ## 测试模板

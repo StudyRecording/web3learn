@@ -40,10 +40,10 @@ cd my-hardhat3-project
 npm init -y
 
 # 安装 Hardhat
-npm install --save-dev hardhat
+bun add --dev hardhat
 
 # 初始化 Hardhat 3 项目
-npx hardhat init
+bunx hardhat init
 ```
 
 ### 选择项目类型
@@ -169,16 +169,16 @@ contract CounterTest {
 
 ```bash
 # 运行所有测试
-npx hardhat test
+bunx hardhat test
 
 # 运行特定测试文件
-npx hardhat test test/Counter.t.sol
+bunx hardhat test test/Counter.t.sol
 
 # 运行带类型检查
-npx hardhat test --typecheck
+bunx hardhat test --typecheck
 
 # 详细输出
-npx hardhat test -vvvv
+bunx hardhat test -vvvv
 ```
 
 ## 多链支持
@@ -321,7 +321,7 @@ export default config;
 
 ```bash
 # 1. 更新 package.json
-npm install --save-dev hardhat@latest @nomicfoundation/hardhat-toolbox@latest
+bun add --dev hardhat@latest @nomicfoundation/hardhat-toolbox@latest
 
 # 2. 添加 ESM 支持
 # 在 package.json 中添加

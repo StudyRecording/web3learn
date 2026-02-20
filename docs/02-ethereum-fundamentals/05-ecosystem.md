@@ -314,7 +314,7 @@ OpenZeppelin - 安全合约库
 └── 升级模式
 
 使用:
-npm install @openzeppelin/contracts
+bun add @openzeppelin/contracts
 ```
 
 ```solidity

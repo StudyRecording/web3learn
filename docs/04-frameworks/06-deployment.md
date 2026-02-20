@@ -241,20 +241,20 @@ main().catch(console.error);
 
 ```bash
 # 本地部署
-npx hardhat run scripts/deploy.js
+bunx hardhat run scripts/deploy.js
 
 # 部署到本地节点
-npx hardhat node  # 终端 1
-npx hardhat run scripts/deploy.js --network localhost  # 终端 2
+bunx hardhat node  # 终端 1
+bunx hardhat run scripts/deploy.js --network localhost  # 终端 2
 
 # 部署到测试网
-npx hardhat run scripts/deploy.js --network sepolia
+bunx hardhat run scripts/deploy.js --network sepolia
 
 # 部署到主网
-npx hardhat run scripts/deploy.js --network mainnet
+bunx hardhat run scripts/deploy.js --network mainnet
 
 # 验证合约
-npx hardhat verify --network sepolia <ADDRESS> <CONSTRUCTOR_ARGS>
+bunx hardhat verify --network sepolia <ADDRESS> <CONSTRUCTOR_ARGS>
 ```
 
 ## Foundry 部署
@@ -495,7 +495,7 @@ broadcast/
 
 ```bash
 # Hardhat
-npx hardhat verify --network sepolia <ADDRESS> "My Token" "MTK" "1000000"
+bunx hardhat verify --network sepolia <ADDRESS> "My Token" "MTK" "1000000"
 
 # Foundry
 forge verify-contract <ADDRESS> SimpleToken \
@@ -633,7 +633,7 @@ networks: {
 ```
 
 ```bash
-npx hardhat run scripts/deploy.js --network arbitrum
+bunx hardhat run scripts/deploy.js --network arbitrum
 ```
 
 ### Optimism 部署

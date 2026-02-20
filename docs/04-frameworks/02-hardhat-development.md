@@ -7,7 +7,7 @@
 ### 基础编译
 
 ```bash
-npx hardhat compile
+bunx hardhat compile
 ```
 
 输出示例：
@@ -106,7 +106,7 @@ module.exports = {
 ### 查看合约大小
 
 ```bash
-npx hardhat size-contracts
+bunx hardhat size-contracts
 ```
 
 输出：
@@ -129,7 +129,7 @@ npx hardhat size-contracts
 Hardhat 使用 Mocha + Chai 作为测试框架（类似 Java 的 JUnit）：
 
 ```bash
-npm install --save-dev chai @nomicfoundation/hardhat-chai-matchers
+bun add --dev chai @nomicfoundation/hardhat-chai-matchers
 ```
 
 ### 基础测试示例
@@ -388,19 +388,19 @@ describe("SimpleToken with Fixture", function () {
 
 ```bash
 # 运行所有测试
-npx hardhat test
+bunx hardhat test
 
 # 运行特定文件
-npx hardhat test test/SimpleToken.js
+bunx hardhat test test/SimpleToken.js
 
 # 运行匹配的测试
-npx hardhat test --grep "transfer"
+bunx hardhat test --grep "transfer"
 
 # 显示 console.log 输出
-npx hardhat test --verbose
+bunx hardhat test --verbose
 
 # 测试覆盖率
-npx hardhat coverage
+bunx hardhat coverage
 ```
 
 ## 部署合约
@@ -455,7 +455,7 @@ main()
 安装插件：
 
 ```bash
-npm install --save-dev hardhat-deploy
+bun add --dev hardhat-deploy
 ```
 
 创建部署配置：
@@ -509,16 +509,16 @@ module.exports = {
 
 ```bash
 # 本地部署
-npx hardhat deploy
+bunx hardhat deploy
 
 # 部署到测试网
-npx hardhat deploy --network sepolia
+bunx hardhat deploy --network sepolia
 
 # 部署特定标签
-npx hardhat deploy --tags token
+bunx hardhat deploy --tags token
 
 # 导出部署地址
-npx hardhat export --export deployments.json
+bunx hardhat export --export deployments.json
 ```
 
 ### 带 constructor 参数的部署
@@ -563,13 +563,13 @@ main().catch(console.error);
 
 ```bash
 # 自动验证（需要在 hardhat.config.js 配置 etherscan）
-npx hardhat run scripts/deploy.js --network sepolia
+bunx hardhat run scripts/deploy.js --network sepolia
 
 # 手动验证
-npx hardhat verify --network sepolia <CONTRACT_ADDRESS> "My Token" "MTK" "1000000"
+bunx hardhat verify --network sepolia <CONTRACT_ADDRESS> "My Token" "MTK" "1000000"
 
 # 验证代理合约
-npx hardhat verify --network sepolia --contract contracts/Implementation.sol:Implementation <PROXY_ADDRESS>
+bunx hardhat verify --network sepolia --contract contracts/Implementation.sol:Implementation <PROXY_ADDRESS>
 ```
 
 验证配置：
@@ -613,7 +613,7 @@ contract DebugExample {
 测试时查看输出：
 
 ```bash
-npx hardhat test --verbose
+bunx hardhat test --verbose
 ```
 
 ### 使用 Hardhat Network 辅助调试
